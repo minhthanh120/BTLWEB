@@ -1,0 +1,60 @@
+﻿@model OnlineBookStore.Models.Entities.USER
+
+@{
+    ViewBag.Title = "Thông tin";
+    Layout = "~/Views/Shared/_Layoutfront.cshtml";
+}
+
+<h2>Thông tin khách hàng</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.LabelFor(model => model.ACCOUNT,"Tài khoản")
+        </dt>
+
+
+        <dd>
+            @Html.DisplayFor(model => model.ACCOUNT)
+        </dd>
+       
+
+        <dt>
+            @Html.LabelFor(model => model.USERNAME,"Họ tên")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.USERNAME)
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.ADDRESS,"Địa chỉ")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ADDRESS)
+        </dd>
+
+
+        <dt>
+            @Html.LabelFor(model => model.PHONE,"Số điện thoại")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PHONE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa thông tin", "Edit", new { id = Model.USERID }) 
+</p>

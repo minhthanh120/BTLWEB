@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layoutfront.cshtml";
+}
+
+@section slide
+    {
+    @{ Html.RenderAction("Slide");}
+}
+<div class="features_items">
+    <!--features_items-->
+    @{ Html.RenderAction("NewBook");}
+
+</div>
+<div class="features_items">
+    <!--features_items-->
+    @{ Html.RenderAction("NewBook1");}
+</div>
+<div class="features_items">
+    <!--features_items-->
+    @{ Html.RenderAction("NewBook2");}
+</div>
+<div class="features_items">
+    <!--features_items-->
+    @{ Html.RenderAction("NewBook3");}
+</div>

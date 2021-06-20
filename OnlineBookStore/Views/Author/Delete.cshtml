@@ -1,0 +1,36 @@
+﻿@model OnlineBookStore.Models.Entities.AUTHOR
+
+@{
+    ViewBag.Title = "Delele";
+    Layout = "~/Views/Shared/BackendLayout.cshtml";
+}
+
+<h2>Xóa tác giả </h2>
+<hr />
+<div>
+    <dl class="dl-horizontal" style="font-size: 16px">
+        <dt>
+            ID Tác giả:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AUTHORID)
+        </dd>
+        <br>
+        <dt>
+            Tên tác giả:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AUTHORNAME)
+        </dd>
+    </dl>
+    <hr />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa tác giả" class="btn btn-default" /> |
+            <a href="~/Author" class='btn btn-default'>Quay Lại</a>
+        </div>
+    }
+</div>

@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title | BookShop</title>
+    <link rel="shortcut icon" href="~/Image/home-icon.png" />
+    <link href="~/Content/Frontend/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/Frontend/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/Frontend/css/prettyPhoto.css" rel="stylesheet">
+    <link href="~/Content/Frontend/css/price-range.css" rel="stylesheet">
+    <link href="~/Content/Frontend/css/animate.css" rel="stylesheet">
+    <link href="~/Content/Frontend/css/main.css" rel="stylesheet">
+    <link href="~/Content/Frontend/css/responsive.css" rel="stylesheet">
+    <link href="~/Content/Frontend/css/Button.css" rel="stylesheet" />
+    <link href="~/Content/Frontend/css/Site.css" rel="stylesheet" />
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/Frontend/css/jquery.mtfpicviewer.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+    <link href="~/Content/Frontend/css/searchbox.css" rel="stylesheet" />
+
+</head><!--/head-->
+<body>
+
+    <!--header-->
+    @RenderPage("~/Views/Shared/_Menu.cshtml")
+
+    <!--/header-->
+    <section id="slider">
+        <!--slider-->
+        <div class="container">
+            @RenderSection("slide", required: false)
+        </div>
+    </section><!--/slider-->
+    @*container*@
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="left-sidebar">
+                        <!--/category-products-->
+                        @{Html.RenderAction("Booktype", "Home");}
+                        <div class="brands_products">
+                            <!--Author-->
+                            @{ Html.RenderAction("Author", "Home");}
+                        </div><!--/Author-->
+                        <div class="brands_products">
+                            <!--Publisher-->
+                            @{ Html.RenderAction("Publish", "Home");}
+                        </div><!--/Publisher-->
+                        <div class="shipping text-center">
+                            <!--shipping-->
+                            <img src="~/Image/home/shipping.jpg" alt="" />
+                        </div><!--/shipping-->
+
+                    </div>
+                </div>
+                <div class="col-md-9 padding-right">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Footer-->
+    @RenderPage("~/Views/Shared/_Footer.cshtml")
+
+    <script src="~/Content/Frontend/js/jquery.js"></script>
+    <script src="~/Content/Frontend/js/bootstrap.min.js"></script>
+    <script src="~/Content/Frontend/js/jquery.prettyPhoto.js"></script>
+    <script src="~/Scripts/script.js"></script>
+    <script data-require="jquery@3.1.1" data-semver="3.1.1" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/combine/npm/jquery@1.12.4,npm/hammer-touchemulator@0.0.2,npm/rgbaster@1.0.0"></script>
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="~/Content/Frontend/js/jquery.mtfpicviewer.js"></script>
+    <script src="~/Content/Frontend/js/jquery.imageview.js"></script>
+    <script src="~/Content/Frontend/js/tests.js"></script>
+    <script src="~/Content/Frontend/js/Show.js"></script>
+    <script src="~/Content/Frontend/js/Show1.js"></script>
+    <script src="~/Content/Frontend/js/Show2.js"></script>
+    <script src="~/Content/Frontend/js/choice.js"></script>
+    <script>
+        const choices = new Choices('[data-trigger]',
+            {
+                searchEnabled: false,
+                itemSelectText: '',
+            });
+
+    </script>
+</body>
+</html>

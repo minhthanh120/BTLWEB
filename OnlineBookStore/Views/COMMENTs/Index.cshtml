@@ -1,0 +1,65 @@
+﻿@model IEnumerable<OnlineBookStore.Models.Entities.COMMENT>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BOOK.BOOKNAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.USER.ACCOUNT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.COMMENTDATE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.COMMENT1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RATING)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BOOK.BOOKNAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.USER.ACCOUNT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.COMMENTDATE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.COMMENT1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RATING)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.COMMENTID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.COMMENTID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.COMMENTID })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

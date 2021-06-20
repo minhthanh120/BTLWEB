@@ -1,0 +1,66 @@
+﻿@model OnlineBookStore.Models.Entities.COMMENT
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>COMMENT</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.BOOK.BOOKNAME)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.BOOK.BOOKNAME)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.USER.ACCOUNT)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.USER.ACCOUNT)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.COMMENTDATE)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.COMMENTDATE)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.COMMENT1)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.COMMENT1)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.RATING)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.RATING)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.COMMENTID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

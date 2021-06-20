@@ -1,0 +1,31 @@
+﻿@model OnlineBookStore.Models.Entities.AUTHOR
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/BackendLayout.cshtml";
+}
+
+<h2>Thông tin tác giả</h2>
+<hr />
+<div>
+    <dl class="dl-horizontal" style="font-size: 16px">
+        <dt>
+            ID Tác giả:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AUTHORID)
+        </dd>
+        <br>
+        <dt>
+            Tên tác giả:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AUTHORNAME)
+        </dd>
+    </dl>
+</div>
+<hr />
+<p>
+    <a href="~/Author/Edit/@Model.AUTHORID" class='btn btn-default'>Sửa thông tin</a> |
+    <a href="~/Author" class='btn btn-default'>Quay Lại</a> 
+</p>

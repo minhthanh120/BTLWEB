@@ -1,0 +1,57 @@
+﻿@model OnlineBookStore.Models.Entities.USER
+
+@{
+    ViewBag.Title = "Thông tin";
+    Layout = "~/Views/Shared/_Layoutfront.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.USERID)
+        @Html.HiddenFor(model => model.ACCOUNT)
+        @Html.HiddenFor(model => model.AVATAR)
+        @Html.HiddenFor(model => model.ADMRIGHT)
+        @Html.HiddenFor(model => model.USERNAME)
+        @Html.HiddenFor(model => model.PASSWORD)
+        @Html.HiddenFor(model => model.EMAIL)
+
+
+        @Html.Raw(TempData["msg"])
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ADDRESS, "Địa chỉ", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ADDRESS, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ADDRESS, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PHONE, "Số điện thoại", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PHONE, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PHONE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Đặt hàng" class="btn btn-success" />
+            </div>
+        </div>
+
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Quay lại giỏ hàng", "ShowtoCart")
+</div>

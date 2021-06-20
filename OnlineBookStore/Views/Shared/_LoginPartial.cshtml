@@ -1,0 +1,19 @@
+﻿
+@if (Session["Client"]!=null)
+{
+    using (Html.BeginForm("LogOut", "User", FormMethod.Post, new { id = "logoutForm" }))
+    {
+        @Html.AntiForgeryToken()
+        <li><a href="/User/Details/@Session["Userid"]"><i class="fa fa-user"> @Session["User"]</i></a></li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-lock"></i> Logout</a></li>
+    }
+}
+else
+{
+    <li>
+        <a href="/User/Create"><i class="fa fa-sign-out"></i> Đăng ký</a>
+    </li>
+    <li>
+        <a href="/User/Login"><i class="fa fa-lock"></i> Đăng nhập</a>
+    </li>
+}

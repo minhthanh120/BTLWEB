@@ -1,0 +1,33 @@
+﻿@model OnlineBookStore.Models.Entities.USER
+
+@{
+    ViewBag.Title = "AdmChgPass";
+    Layout = "~/Views/Shared/BackendLayout.cshtml";
+}
+
+<h2>Đổi Mật Khẩu</h2>
+<h3 style="color:red">@ViewBag.WrongPass</h3>
+<hr />
+
+<form action="@Model.USERID" method="post">
+    <h3>Mật khẩu hiện tại: </h3>
+    <input type="password" name="CurPass" required>
+    <br /><br />
+    <h3>Mật khẩu mới: </h3>
+    <input type="password" name="NewPass" required>
+    <br /><br />
+    <h3>Gõ lại mật khẩu mới: </h3>
+    <input type="password" name="Retype" required>
+    <br />
+    <hr />
+    <p>
+        <button onclick="window.history.back()" class='btn btn-default' style="font-size: 19px">Quay về</button>
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Xác nhận" class="btn btn-default" style="font-size: 19px">
+            </div>
+        </div>
+    </p>
+</form>
+

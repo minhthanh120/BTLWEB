@@ -1,0 +1,74 @@
+﻿﻿@model OnlineBookStore.Models.Entities.USER
+
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "AdminEdit";
+    Layout = "~/Views/Shared/BackendLayout.cshtml";
+}
+
+<h2>Sửa thông tin</h2>
+
+@using (Html.BeginForm("AdminEdit", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.USERID)
+        @Html.HiddenFor(model => model.ADMRIGHT)
+        @Html.HiddenFor(model => model.AVATAR)
+
+        <div id="HASH" class="infomation">
+            <div id="left">
+                <h4>Ảnh đại diện:</h4>
+                <div class="col-md-10">
+                    <img src="@Url.Content(Model.AVATAR?? "~/Image/nulluser.png")" alt="Image not found" style="height:300px; width:300px" id="avatar" />
+                    <input type="file" name="ImageUpload" onchange="ShowImagePreview(this, document.getElementById('avatar'))" />
+                </div>
+            </div>
+            <div id="right">
+                <h4>Tên tài khoản:</h4>
+                @Html.EditorFor(model => model.ACCOUNT, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ACCOUNT, "", new { @class = "text-danger" })
+
+                <br /><br />
+                <h4>Mật khẩu:</h4>
+                @Html.EditorFor(model => model.PASSWORD, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PASSWORD, "", new { @class = "text-danger" })
+
+                <br /><br />
+                <h4>Tên người dùng:</h4>
+                @Html.EditorFor(model => model.USERNAME, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.USERNAME, "", new { @class = "text-danger" })
+
+                <br /><br />
+                <h4>Địa chỉ:</h4>
+                @Html.EditorFor(model => model.ADDRESS, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ADDRESS, "", new { @class = "text-danger" })
+
+                <br /><br />
+                <h4>Liên lạc:</h4>
+                @Html.EditorFor(model => model.PHONE, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PHONE, "", new { @class = "text-danger" })
+
+                <br /><br />
+                <h4>Email:</h4>
+                @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <hr />
+        <p>
+            @*<a href="~/Manager" class='btn btn-default' style="font-size: 19px">Quay về</a>*@
+            <button onclick="window.history.back()" class='btn btn-default' style="font-size: 19px">Quay về</button>
+            <br />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Lưu thông tin" class="btn btn-default" style="font-size: 19px" />
+                </div>
+            </div>
+        </p>
+    </div>
+}

@@ -1,0 +1,23 @@
+﻿@model IEnumerable<OnlineBookStore.Models.Entities.BOOK>
+
+<h2 class="title text-center">Sách giả tưởng mới</h2>
+@foreach (var item in Model.Where(n=>n.BOOKTYPE.TYPEID==1).OrderByDescending(i=>i.BOOKID).Take(4))
+{
+    <div class="col-sm-3">
+       <div class="product-image-wrapper">
+          <div class="single-products">
+              <div class="productinfo text-center">
+                  <a href='@Url.Action("Details", "BOOKs", new { id = item.BOOKID })'>
+                      <img src="@Url.Content(item.PIC1)" style="width:100px;height:100px;" />
+                  </a>
+                  <a>
+                      <p>@Html.DisplayFor(modelItem => item.BOOKNAME)</p>
+                  </a>
+                  <a>
+                      <h2>@Html.DisplayFor(modelItem => item.PRICE)đ</h2>
+                  </a>
+              </div>
+          </div>
+       </div>
+   </div>
+}

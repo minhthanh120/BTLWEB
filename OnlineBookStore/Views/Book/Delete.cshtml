@@ -1,0 +1,99 @@
+﻿@model OnlineBookStore.Models.Entities.BOOK
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/BackendLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Bạn có muốn xóa thông tin về sách này?</h3>
+<div>
+    <h4>BOOK</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BOOKNAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BOOKNAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DESCRIPTIONS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESCRIPTIONS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TYPEID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BOOKTYPE.TYPEID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PUBLISHID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PUBLISH.PUBLISHID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AMOUNT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AMOUNT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AUTHORID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AUTHOR.AUTHORID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PRICE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRICE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PIC1)
+        </dt>
+
+        <td>
+            <img src="@Url.Content(Model.PIC1?? "~/Image/add.png")" alt="Image not found" />
+        </td>
+        <td>
+            <img src="@Url.Content(Model.PIC2?? "~/Image/add.png")" alt="Image not found" />
+        </td>
+        <td>
+            <img src="@Url.Content(Model.PIC3?? "~/Image/add.png")" alt="Image not found" />
+        </td>
+        <td>
+            <img src="@Url.Content(Model.PIC4?? "~/Image/add.png")" alt="Image not found" />
+        </td>
+
+
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Quay lại trang danh sách", "Index")
+        </div>
+    }
+</div>

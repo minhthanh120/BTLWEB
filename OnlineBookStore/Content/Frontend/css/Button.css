@@ -1,0 +1,71 @@
+﻿/* -- quantity box -- */
+
+.quantity {
+    display: inline-block;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button 
+{
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+    .quantity .input-text.qty  {
+        width: 50px;
+        height: 39px;
+        padding: 0 5px;
+        text-align: center;
+        background-color: transparent;
+        border: 1px solid #efefef;
+        font-weight:normal;
+        font-size:14px;
+    }
+
+    .quantity.buttons_added {
+        text-align: left;
+        position: relative;
+        white-space: nowrap;
+        vertical-align: top;
+    }
+
+        .quantity.buttons_added input  {
+            display: inline-block;
+            margin: 0;
+            vertical-align: top;
+            box-shadow: none;
+        }
+
+        .quantity.buttons_added .minus,
+        .quantity.buttons_added .plus {
+            padding: 0;
+            height: 39px;
+            background-color: #ffffff;
+            border: 1px solid #efefef;
+            cursor: pointer;
+            text-align:center;
+            width:30px;
+            font-weight:normal;
+            font-size:15px;
+        }
+
+        .quantity.buttons_added .minus  {
+            border-right: 0;
+        }
+
+        .quantity.buttons_added .plus  {
+            border-left: 0;
+        }
+
+        .quantity.buttons_added .minus:hover  ,
+        .quantity.buttons_added .plus:hover  {
+           background: #eeeeee;
+        }
+
+
+    .quantity.buttons_added .minus:focus ,
+    .quantity.buttons_added .plus:focus  {
+        outline: none;
+    }
+

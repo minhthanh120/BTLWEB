@@ -1,0 +1,113 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<OnlineBookStore.Models.Entities.BILL>
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/BackendLayout.cshtml";
+}
+
+<h2>Danh sách hóa đơn</h2>
+@using (Html.BeginForm("Index", "CheckBill", FormMethod.Get))
+{
+    <div class="btn-group">
+        @Html.DropDownList("sort", null, new { @class = "from-control", @onChange = "this.form.submit()" });
+    </div>
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().BILLDATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TOTALBILL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().USERID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().USERNAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().ADDRESS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().PHONE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().EMAIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().CHECKED)
+        </th>
+        <th></th>
+    </tr>
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td colspan="5"> Không tìm thấy kết quả nào!</td>
+        </tr>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BILLDATE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TOTALBILL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.USERID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.USERNAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ADDRESS)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PHONE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EMAIL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CHECKED)
+                    @if (item.CHECKED == false)
+                    {
+                        <label>Chưa duyệt</label>
+                    }
+                    else if (item.CHECKED == true)
+                    {
+                        <label>Đã duyệt</label>
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("Thông tin chi tiết hóa đơn", "Edit", new { id = item.BILLID })
+                </td>
+            </tr>
+        }
+    }
+
+</table>
+
+
+<div class="text-center" style="text-align: center">
+    <ul class="pagination">
+        Trang  @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+        / @Model.PageCount
+
+        @Html.PagedListPager(Model, pageNum => Url.Action("Index", new
+        {
+            pageNum,
+            search = Request.QueryString["sort"]
+        }))
+    </ul>
+</div>
+

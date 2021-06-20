@@ -1,0 +1,31 @@
+﻿@model OnlineBookStore.Models.Entities.BILL
+
+<table class="table">
+    <tr>
+        <th>
+            Tên sách
+        </th>
+        <th>
+            Số lượng
+        </th>
+        <th>
+            Đơn giá
+        </th>
+    </tr>
+
+@foreach (var item in Model.DETAILDTO) {
+    <tr>
+        <td>@Html.DisplayFor(modelItem=>item.BOOKNAME)</td>
+        <td>
+            
+            @Html.DisplayFor(modelItem => item.AMOUNT)
+        </td>
+        <td>
+                   
+    @Html.DisplayFor(modelItem => item.PRICE)
+        </td>
+
+    </tr>
+}
+
+</table>

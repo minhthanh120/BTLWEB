@@ -1,0 +1,147 @@
+﻿@model OnlineBookStore.Models.Entities.BOOK
+
+@{
+    ViewBag.Title = "Detail";
+    //Layout = null;
+    Layout = "~/Views/Shared/BackendLayout.cshtml";
+
+}
+
+<h2>Thông tin chi tiết sách trên kệ hàng</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BOOKNAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BOOKNAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DESCRIPTIONS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESCRIPTIONS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TYPEID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BOOKTYPE.TYPEID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PUBLISHID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PUBLISH.PUBLISHID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AMOUNT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AMOUNT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AUTHORID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AUTHOR.AUTHORID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PRICE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRICE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PIC1)
+        </dt>
+
+        <td>
+            <img src="@Url.Content(Model.PIC1?? "~/Image/add.png")" alt="Image not found" />
+        </td>
+        <td>
+            <img src="@Url.Content(Model.PIC2?? "~/Image/add.png")" alt="Image not found" />
+        </td>
+        <td>
+            <img src="@Url.Content(Model.PIC3?? "~/Image/add.png")" alt="Image not found" />
+        </td>
+        <td>
+            <img src="@Url.Content(Model.PIC4?? "~/Image/add.png")" alt="Image not found" />
+        </td>
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa thông tin", "Edit", new { id = Model.BOOKID }) |
+    @Html.ActionLink("Quay lại trang danh sách", "Index")
+</p>
+
+
+
+@Html.Action("Comment", new { id = Model.BOOKID })
+
+@*@section scripts{
+
+        <script language="javascript" type="text/javascript">
+
+            $(document).ready(function () {
+
+                $(document).on("click", "#contentPager a[href]", function () {
+
+                    $.ajax({
+
+                        url: $(this).attr("href"),
+
+                        type: 'GET',
+
+                        cache: false,
+
+                        success: function (result) {
+
+                            $('#content').html(result);
+
+                        }
+
+                    });
+
+                    return false;
+
+                });
+
+            });
+
+        </script>
+
+    }*@
+<script>
+    $(function () {
+        $('#myPager').on('click', 'a', function () {
+            $.ajax({
+                url: this.href,
+                type: 'GET',
+                cache: false,
+                success: function (result) {
+                    $('#some_grid_container').html(result);
+                }
+            });
+            return false;
+        });
+    });
+</script>

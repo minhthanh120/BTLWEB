@@ -1,0 +1,58 @@
+﻿@model OnlineBookStore.Models.Entities.USER
+@{ ViewBag.Title = "Đăng ký";
+    Layout = "~/Views/Shared/LoginLayout.cshtml"; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Đăng ký</title>
+</head>
+<body>
+    <div>
+        <form action="/USER/Create" method="post">
+            @Html.AntiForgeryToken()
+            <div class="module module-login span4 offset4">
+                <form class="form-vertical">
+                    <div class="module-head">
+                        <h3>Đăng Ký</h3>
+                    </div>
+                    <div class="module-body">
+                        <div class="control-group">
+                            <div class="controls row-fluid">
+                                <input class="span12" type="text" placeholder="Tên đăng nhập" name="ACCOUNT" id="ACCOUNT" required>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls row-fluid">
+                                <input class="span12" type="password" placeholder="Mật khẩu" name="PASSWORD" id="PASSWORD" required>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls row-fluid">
+                                <input class="span12" type="email" placeholder="Email" name="EMAIL" id="EMAIL" required>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls row-fluid">
+                                <input class="span12" type="text" placeholder="Họ tên" name="USERNAME" id="USERNAME" required>
+                            </div>
+                        </div>
+                        <input type="hidden" id="AVATAR" name="AVATAR" value=""/>
+                    </div>
+                    <div class="module-foot">
+                        <div class="control-group">
+                            <div class="controls clearfix">
+                                <button type="submit" class="btn btn-primary pull-right">Đăng Ký</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+

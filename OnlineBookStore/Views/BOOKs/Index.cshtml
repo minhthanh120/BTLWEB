@@ -1,0 +1,37 @@
+﻿@model PagedList.IPagedList<OnlineBookStore.Models.Entities.BOOK>
+@using PagedList.Mvc
+@{ Layout = "~/Views/Shared/_Layoutfront.cshtml"; }
+
+<h2 class="title text-center">Sách tìm kiếm</h2>
+<div class="col-md-12" style="display:flex;flex-wrap:wrap">
+
+    @if (Model.Count == 0)
+    {
+<p style="text-align:center">Không tìm thấy ....</p> }
+else
+{
+foreach (var item in Model)
+{
+<div class="col-sm-3">
+    <div class="product-image-wrapper">
+        <div class="single-products">
+            <div class="productinfo text-center">
+                <a href='@Url.Action("Details", "BOOKs", new { id = item.BOOKID })'>
+                    <img src="@Url.Content(item.PIC1)" style="width:100px;height:100px;" />
+                </a>
+                <a>
+                    <p>@Html.DisplayFor(modelItem => item.BOOKNAME)</p>
+                </a>
+                <a>
+                    <h2>@Html.DisplayFor(modelItem => item.PRICE)đ</h2>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>}
+
+}
+</div>
+<div style="text-align:center">
+    @Html.PagedListPager(Model, page => Url.Action("Index", "BOOks", new { page, @search = @ViewBag.Search, @type = ViewBag.Type, @author = ViewBag.Author, @publish = ViewBag.Pulish, @max = ViewBag.Max, @min = ViewBag.Min }))
+</div>

@@ -1,0 +1,106 @@
+﻿@model OnlineBookStore.Models.Cart
+
+@{
+    ViewBag.Title = "Giỏ hàng";
+    Layout = "~/Views/Shared/_MF.cshtml";
+}
+<style>
+    input.btn.btn-default {
+        width: 60px;
+    }
+</style>
+<section id="cart_items">
+    <div class="container">
+        <div class="breadcrumbs">
+            <ol class="breadcrumb">
+                <li class="active">Giỏ hàng</li>
+                <li class="active"></li>
+            </ol>
+        </div>
+        @if (Model != null)
+        {
+            <div class="table-responsive cart_info" style="margin-bottom:0">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr class="cart_menu">
+                            <td class="image">Sản phẩm</td>
+                            <td class="description">Tên</td>
+                            <td class="price">Đơn giá</td>
+                            <td class="amount">Số lượng</td>
+                            <td class="total">Số tiền</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Items)
+                        {
+                            <tr id="row_ @item._shopping_product.BOOKID">
+                                <td class="cart_product">
+                                    <img src="@Url.Content(item._shopping_product.PIC1)" style="height:110px;width:110px" alt="1" />
+                                </td>
+                                <td class="cart_description">
+                                    <h4>@item._shopping_product.BOOKNAME</h4>
+                                    <p>@item._shopping_product.AUTHOR.AUTHORNAME</p>
+                                </td>
+                                <td class="cart_price">
+                                    <p>@item._shopping_product.PRICE VND</p>
+                                </td>
+                                <td class="cart_quantity">
+                                    @using (Html.BeginForm("Update_Quantity_Cart", "Cart"))
+                                    {
+                                        <input type="hidden" value="@item._shopping_product.BOOKID" name="book_id" />
+                                        <span class="quantity buttons_added">
+                                            <input type="submit" value="-" class="minus"><input type="number" step="1" min="1" max="@item._shopping_product.AMOUNT" name="quantity" value="@item._shopping_quantity" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="submit" value="+" class="plus">
+                                        </span>
+                                    }
+                                </td>
+                                <td class="cart_total">
+                                    <p class="cart_total_price">@(item._shopping_product.PRICE * item._shopping_quantity) VND</p>
+                                </td>
+
+                                <td class="cart_delete">
+                                    <a href="/Cart/RemoveCart/@item._shopping_product.BOOKID"><i class="fa fa-times"></i></a>
+                                </td>
+                            </tr>
+                        }
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="cart_price">
+                                <p>Tổng Thanh Toán : </p>
+                            </td>
+                            <td class="cart_total">
+                                <p class="cart_total_price">@Model.Total_Money() VND</p>
+                            </td>
+                            @if (Session["Client"] != null)
+                            {
+                            <td>
+                                <a href="/ShoppingCart/Edit/@Session["Userid"]" class="btn btn-success">Mua Hàng</a>
+                            </td>
+                            }
+                            else
+                            {
+                            <td>
+                                <a href="/User/Login" class="btn btn-success">Mua Hàng</a>
+                            </td>
+                            }
+
+
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+
+
+        }
+        else
+        {
+            <h2></h2>
+        }
+     </div>
+
+</section>
+

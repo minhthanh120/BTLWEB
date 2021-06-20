@@ -1,0 +1,14 @@
+﻿@model IEnumerable<OnlineBookStore.Models.Entities.PUBLISH>
+<h2>Nhà xuất bản</h2>
+<div class="brands-name1">
+    <ul class="nav nav-pills nav-stacked">
+        @foreach (var item in Model)
+        {
+            <li><a href="/Books?search=@item.PUBLISHNAME">@item.PUBLISHNAME</a></li>
+        }
+    </ul>
+    <div class="toggle_btn1" style="text-align:center;">
+        <span class="toggle_text1">Xem thêm</span>
+        <img src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_morong.png" class="fas1" />
+    </div>
+</div>

@@ -1,0 +1,105 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<OnlineBookStore.Models.DTO.BOOKDTO>
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/BackendLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="pagination justify-content-center mb-0" style="text-align:center">
+    @Html.PagedListPager(Model, PageNum => Url.Action("Index", new { PageNum }))
+</div>
+<table class="table">
+    <tr>
+        <th>
+            Tên sách
+        </th>
+        <th>
+            Mô tả
+        </th>
+
+        <th>
+            Thể loại
+        </th>
+
+        <th>
+            Nhà xuất bản
+        </th>
+        <th>
+            Số lượng
+        </th>
+
+        <th>
+            Tác giả
+        </th>
+        <th>
+            Hình ảnh
+        </th>
+        <th>
+            Hình ảnh
+        </th>
+        <th>
+            Hình ảnh
+        </th>
+        <th>
+            Hình ảnh
+        </th>
+        <th>
+            Giá
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BOOKNAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DESCRIPTIONS)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.TYPENAME)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.PUBLISHNAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AMOUNT)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.AUTHORNAME)
+            </td>
+            <td>
+                <img src="@Url.Content(item.PIC1?? "~/Image/add.png")" alt="Image not found" width="100" height="100" />
+            </td>
+            <td>
+                <img src="@Url.Content(item.PIC2?? "~/Image/add.png")" alt="Image not found" width="100" height="100" />
+            </td>
+            <td>
+                <img src="@Url.Content(item.PIC3?? "~/Image/add.png")" alt="Image not found" width="100" height="100" />
+            </td>
+            <td>
+                <img src="@Url.Content(item.PIC4?? "~/Image/add.png")" alt="Image not found" width="100" height="100" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PRICE)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>

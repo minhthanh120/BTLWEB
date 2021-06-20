@@ -1,0 +1,134 @@
+﻿@model OnlineBookStore.Models.Entities.BOOK
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/BackendLayout.cshtml";
+}
+
+<h2>Thêm sách</h2>
+
+
+@using (Html.BeginForm("Create", "Book",FormMethod.Post, new { enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger",
+       cols = "500",
+       rows = "100"
+   })
+        <div class="">
+            @Html.LabelFor(model => model.BOOKNAME, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BOOKNAME, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BOOKNAME, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DESCRIPTIONS, htmlAttributes: new { @class = "control-label col-md-2" })
+            
+                @Html.TextAreaFor(model => model.DESCRIPTIONS, new { htmlAttributes = new { @class = "form-control" } ,
+               cols = "50",
+               rows = "10"})
+                @Html.ValidationMessageFor(model => model.DESCRIPTIONS, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TYPEID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("typeid", null, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TYPEID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PUBLISHID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("publishid", null, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PUBLISHID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AMOUNT, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AMOUNT, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AMOUNT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AUTHORID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("authorid", null, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AUTHORID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PIC1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <img src="@Url.Content(Model.PIC1)" style="height:100px;width:100px" id="PIC1" />
+                <input type="file" name="Image1" onchange="ShowImagePreview(this, document.getElementById('PIC1'))" required/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PIC2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <img src="@Url.Content(Model.PIC2)" style="height:100px;width:100px" id="PIC2" />
+                <input type="file" name="Image2" onchange="ShowImagePreview(this, document.getElementById('PIC2'))" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PIC3, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <img src="@Url.Content(Model.PIC3)" style="height:100px;width:100px" id="PIC3" />
+                <input type="file" name="Image3" onchange="ShowImagePreview(this, document.getElementById('PIC3'))" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PIC4, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <img src="@Url.Content(Model.PIC4)" style="height:100px;width:100px" id="PIC4" />
+                <input type="file" name="Image4" onchange="ShowImagePreview(this, document.getElementById('PIC4'))" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PRICE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PRICE, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PRICE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Xác nhận" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Quay lại trang danh sách", "Index")
+</div>
+<script>
+    function ShowImagePreview(imageUploader, previewImage) {
+        if (imageUploader.files && imageUploader.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $(previewImage).attr('src', e.target.result);
+            }
+            reader.readAsDataURL(imageUploader.files[0]);
+        }
+    }
+</script>
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@
