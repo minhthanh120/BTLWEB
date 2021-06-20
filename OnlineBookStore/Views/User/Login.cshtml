@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/LoginLayout.cshtml";
 }
@@ -13,39 +12,25 @@
 </head>
 <body>
     <div>
-        <form action="LoginAction">
-            <div class="module module-login span4 offset4">
-                <form class="form-vertical">
-                    <div class="module-head">
-                        <h3>Đăng Nhập</h3>
-                    </div>
-                    <div class="module-body">
-                        <div class="control-group">
-                            <div class="controls row-fluid">
-                                <input class="span12" type="text" placeholder="Tên đăng nhập" name="ACCOUNT">
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <div class="controls row-fluid">
-                                <input class="span12" type="password" placeholder="Mật khẩu" name="PASSWORD">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="module-foot">
-                        <div class="control-group">
-                            <div class="controls clearfix">
-                                <button type="submit" class="btn btn-primary pull-right">Đăng Nhập</button>
-                                <label class="checkbox">
-                                    <input type="checkbox"> Remember me
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+        <form class="user" action="LoginAction">
+            <div class="form-group">
+                <input type="email" class="form-control form-control-user" id="account" aria-describedby="emailHelp" placeholder="Tài khoản" name="ACCOUNT" />
+
             </div>
+            <div class="form-group">
+                <input type="password" class="form-control form-control-user" id="passsword" placeholder="Mật khẩu" name="PASSWORD" />
+            </div>
+            <div class="form-group">
+                <div class="custom-control custom-checkbox small">
+                    <input type="checkbox" class="custom-control-input" id="check" />
+                    <label class="custom-control-label" for="check">
+                        Lưu thông tin đăng nhập
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class=" btn btn-primary btn-user btn-block">Login</button>
+            <hr />
         </form>
     </div>
 </body>
 </html>
-
-

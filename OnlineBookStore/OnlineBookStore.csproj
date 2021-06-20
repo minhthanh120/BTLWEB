@@ -250,24 +250,6 @@
     <Content Include="bin\System.Web.WebPages.Razor.xml" />
     <Content Include="bin\System.Web.WebPages.xml" />
     <Content Include="bin\WebGrease.dll" />
-    <Content Include="Content\Backend\bootstrap\css\bootstrap-responsive.min.css" />
-    <Content Include="Content\Backend\bootstrap\css\bootstrap.min.css" />
-    <Content Include="Content\Backend\bootstrap\img\glyphicons-halflings-white.png" />
-    <Content Include="Content\Backend\bootstrap\img\glyphicons-halflings.png" />
-    <Content Include="Content\Backend\bootstrap\js\bootstrap.min.js" />
-    <Content Include="Content\Backend\css\theme.css" />
-    <Content Include="Content\Backend\images\bg.png" />
-    <Content Include="Content\Backend\images\icons\css\font-awesome.css" />
-    <Content Include="Content\Backend\images\img.jpg" />
-    <Content Include="Content\Backend\images\jquery-ui\picker.png" />
-    <Content Include="Content\Backend\images\user.png" />
-    <Content Include="Content\Backend\scripts\common.js" />
-    <Content Include="Content\Backend\scripts\datatables\jquery.dataTables.js" />
-    <Content Include="Content\Backend\scripts\flot\jquery.flot.js" />
-    <Content Include="Content\Backend\scripts\flot\jquery.flot.pie.js" />
-    <Content Include="Content\Backend\scripts\flot\jquery.flot.resize.js" />
-    <Content Include="Content\Backend\scripts\jquery-1.9.1.min.js" />
-    <Content Include="Content\Backend\scripts\jquery-ui-1.10.1.custom.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -465,10 +447,6 @@
     <Content Include="obj\Debug\OnlineBookStore.pdb" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Content\Backend\images\icons\font\fontawesome-webfont3294.eot" />
-    <Content Include="Content\Backend\images\icons\font\fontawesome-webfont3294.ttf" />
-    <Content Include="Content\Backend\images\icons\font\fontawesome-webfont3294.woff" />
-    <Content Include="Content\Backend\images\icons\font\fontawesome-webfontd41d.eot" />
     <Content Include="bin\OnlineBookStore.dll.config" />
     <Content Include="bin\roslyn\csc.exe.config" />
     <Content Include="bin\roslyn\csc.rsp" />
@@ -589,6 +567,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Backend\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
