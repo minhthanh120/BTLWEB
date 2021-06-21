@@ -4,7 +4,7 @@
     <ul class="nav nav-pills nav-stacked">
         @foreach (var item in Model)
         {
-            <li><a href="/Books?search=@item.TYPENAME">@item.TYPENAME</a></li>
+            <li><a href="/Books?type=@item.TYPENAME">@item.TYPENAME</a></li>
 
         }
     </ul>
