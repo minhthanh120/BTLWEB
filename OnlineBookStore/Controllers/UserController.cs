@@ -58,6 +58,7 @@ namespace OnlineBookStore.Controllers
                     USER u =new USER();
                     u = dao.SEARCHID(adminID);
                     Session["UN"] = u.USERNAME;
+                    Session["ID"] = u.USERID;
                     Session["AVT"] = u.AVATAR;
                     Session["Admin"] = dao.SEARCHID(adminID);
                     return RedirectToAction("AdminInfo", "User", new { id = adminID });
