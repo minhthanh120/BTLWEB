@@ -16,7 +16,7 @@ namespace OnlineBookStore.Controllers
             else return true;
         }
         // GET: Type
-        public ActionResult Index(string search, int pageNum = 1, int pageSize = 5)
+        public ActionResult Index(string search, int pageNum = 1, int pageSize = 10)
         {
             if(isLoggedIn())
             {

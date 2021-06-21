@@ -12,11 +12,13 @@
 <h2>Tìm kiếm loại sách:</h2>
 @using (Html.BeginForm("Index", "Type", FormMethod.Get))
 {
-    @Html.TextBox("search")
-    <input type="submit" name="submit" value="Tìm kiếm" style="height:40px; width:90px" />
+<div class="input-group">
+    @Html.TextBox("search", null, new { @class = "form-input" })
+    <button type="submit" class='btn btn-default'><i class="fas fa-search"></i> Tìm kiếm</button>
+</div>
     <div style="float:right">
         <h3>
-            <a href="~/Type/Create" class='btn btn-default' style="font-size: 19px">Thêm loại sách</a>
+            <a href="~/Type/Create" class='btn btn-default' ><span class="fas fa-plus-circle"></span>Thêm loại sách</a>
         </h3>
     </div>
 }
@@ -38,16 +40,19 @@
     {
         foreach (var item in Model)
         {
-            <tr>
-                <td style="text-align: left">
-                    @Html.DisplayFor(modelItem => item.TYPENAME)
-                </td>
-                <td style="text-align: right">
-                    @Html.ActionLink("Sửa", "Edit", new { id = item.TYPEID }) |
-                    @Html.ActionLink("Chi tiết", "Details", new { id = item.TYPEID }) |
-                    @Html.ActionLink("Xóa", "Delete", new { id = item.TYPEID })
-                </td>
-            </tr>
+<tr>
+    <td style="text-align: left">
+        @Html.DisplayFor(modelItem => item.TYPENAME)
+    </td>
+    @if (item.TYPEID != 0)
+    {
+        <td style="text-align: right">
+            @Html.ActionLink("Sửa", "Edit", new { id = item.TYPEID }) |
+            @Html.ActionLink("Chi tiết", "Details", new { id = item.TYPEID }) |
+            @Html.ActionLink("Xóa", "Delete", new { id = item.TYPEID })
+        </td>
+    }
+</tr>
         }
     }
 </table>

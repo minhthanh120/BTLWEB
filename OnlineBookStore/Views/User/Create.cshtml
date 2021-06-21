@@ -14,37 +14,37 @@
         <form action="/USER/Create" method="post">
             @Html.AntiForgeryToken()
             <div class="module module-login span4 offset4">
-                <form class="form-vertical">
+                <form class="user">
                     <div class="module-head">
                         <h3>Đăng Ký</h3>
                     </div>
                     <div class="module-body">
-                        <div class="control-group">
+                        <div class="form-group">
                             <div class="controls row-fluid">
-                                <input class="span12" type="text" placeholder="Tên đăng nhập" name="ACCOUNT" id="ACCOUNT" required>
+                                <input class="form-control form-control-user" type="text" placeholder="Tên đăng nhập" name="ACCOUNT" id="ACCOUNT" required>
                             </div>
                         </div>
-                        <div class="control-group">
+                        <div class="form-group">
                             <div class="controls row-fluid">
-                                <input class="span12" type="password" placeholder="Mật khẩu" name="PASSWORD" id="PASSWORD" required>
+                                <input class="form-control form-control-user" type="password" placeholder="Mật khẩu" name="PASSWORD" id="PASSWORD" required>
                             </div>
                         </div>
-                        <div class="control-group">
+                        <div class="form-group">
                             <div class="controls row-fluid">
-                                <input class="span12" type="email" placeholder="Email" name="EMAIL" id="EMAIL" required>
+                                <input class="form-control form-control-user" type="email" placeholder="Email" name="EMAIL" id="EMAIL" required>
                             </div>
                         </div>
-                        <div class="control-group">
+                        <div class="form-group">
                             <div class="controls row-fluid">
-                                <input class="span12" type="text" placeholder="Họ tên" name="USERNAME" id="USERNAME" required>
+                                <input class="form-control form-control-user" type="text" placeholder="Họ tên" name="USERNAME" id="USERNAME" required>
                             </div>
                         </div>
                         <input type="hidden" id="AVATAR" name="AVATAR" value=""/>
                     </div>
                     <div class="module-foot">
-                        <div class="control-group">
+                        <div class="form-group">
                             <div class="controls clearfix">
-                                <button type="submit" class="btn btn-primary pull-right">Đăng Ký</button>
+                                <button type="submit" class="btn btn-primary btn-user btn-block">Đăng Ký</button>
                             </div>
                         </div>
                     </div>

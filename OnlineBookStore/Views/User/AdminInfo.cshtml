@@ -13,34 +13,34 @@
     <div id="HASH" class="infomation">
         <div id="left">
             <h3>Ảnh đại diện:</h3>
-            <img src="@Url.Content(Model.AVATAR?? "~/Image/nulluser.png")" alt="Image not found" width="300" height="300" />
+            <img src="@Url.Content(Model.AVATAR?? "~/Image/nulluser.png")" alt="Image not found" width="200" height="200" />
         </div>
         <div id="mid">
-            <h3>ID Tài khoản: </h3><br />
-            <h3>Tên tài khoản:</h3><br />
-            <h3>Mật khẩu:</h3><br />
-            <h3>Tên người dùng:</h3><br />
-            <h3>Địa chỉ:</h3><br />
-            <h3>Liên lạc:</h3><br />
-            <h3>Email:</h3><br />
+            <h2>ID Tài khoản: </h2><br />
+            <h2>Tên tài khoản:</h2><br />
+            <h2>Mật khẩu:</h2><br />
+            <h2>Tên người dùng:</h2><br />
+            <h2>Địa chỉ:</h2><br />
+            <h2>Liên lạc:</h2><br />
+            <h2>Email:</h2><br />
         </div>
         <div id="right">
-            <h3>@Html.DisplayFor(model => model.USERID)</h3><br />
-            <h3>@Html.DisplayFor(model => model.ACCOUNT)</h3><br />
-            <h3>@ViewBag.HiddenPass</h3><br />
-            <h3>@Html.DisplayFor(model => model.USERNAME)</h3><br />
-            <h3>@Html.DisplayFor(model => model.ADDRESS)</h3><br />
-            <h3>@Html.DisplayFor(model => model.PHONE)</h3><br />
-            <h3>@Html.DisplayFor(model => model.EMAIL)</h3><br />
+            <h2>@Html.DisplayFor(model => model.USERID)</h2><br />
+            <h2>@Html.DisplayFor(model => model.ACCOUNT)</h2><br />
+            <h2>@ViewBag.HiddenPass</h2><br />
+            <h2>@Html.DisplayFor(model => model.USERNAME)</h2><br />
+            <h2>@Html.DisplayFor(model => model.ADDRESS)</h2><br />
+            <h2>@Html.DisplayFor(model => model.PHONE)</h2><br />
+            <h2>@Html.DisplayFor(model => model.EMAIL)</h2><br />
         </div>
     </div>
 </div>
 <hr />
-<p style="font-size: 35px">
-    <a href="~/Manager" class='btn btn-default' style="font-size: 19px">Quay về</a> |
-    <a href="~/User/LogOut" class='btn btn-default' style="font-size: 19px">Đăng xuất</a> |
-    <a href="~/User/AdminEdit/@Model.USERID" class='btn btn-default' style="font-size: 19px">Sửa thông tin</a> |
-    <a href="~/User/AdmChgPass/@Model.USERID" class='btn btn-default' style="font-size: 19px">Đổi mật khẩu</a> |
-    <a href="~/User/AdminCreate" class='btn btn-default' style="font-size: 19px">Thêm quản trị viên</a> |
-    <a href="~/User/AdminDelete/@Model.USERID" class='btn btn-default' style="font-size: 19px">Xóa tài khoản</a>
+<p style="font-size: 35px" class="btn-group">
+    <a href="~/Manager" class='btn btn-default' style="font-size: 19px"><span class="fas fa-arrow-circle-left"></span> Quay về</a>
+    <a href="~/User/LogOut" class='btn btn-default' style="font-size: 19px"><span class="fas fa-sign-out"></span> Đăng xuất</a>
+    <a href="~/User/AdminEdit/@Model.USERID" class='btn btn-default' style="font-size: 19px"><span class="fas fa-info"></span> Sửa thông tin</a>
+    <a href="~/User/AdmChgPass/@Model.USERID" class='btn btn-default' style="font-size: 19px"><span class="fas fa-user"></span> Đổi mật khẩu</a>
+    <a href="~/User/AdminCreate" class='btn btn-default' style="font-size: 19px"><span class="fas fa-plus-circle"></span> Thêm quản trị viên</a>
+    <a href="~/User/AdminDelete/@Model.USERID" class='btn btn-default' style="font-size: 19px"><span class="fas fa-minus-circle"></span> Xóa tài khoản</a>
 </p>

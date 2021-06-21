@@ -7,14 +7,14 @@
 }
 <body onload="changeStatus()">
     <h2>Danh sách</h2>
-    <a href="~/Book/Create" class='btn btn-default'><span class="fas fa-redo-alt"></span> Thêm sách</a>
+
     @using (Html.BeginForm("Index", "Book", FormMethod.Get))
     {
-        <div style="text-align:center">
-            
+        <div>
+
             <td>
-                <div class="input-group" style="text-align:center">
-                    @Html.DropDownList("Select", null, new { onchange = @"changeStatus();" , @class="form-control"})
+                <div class="input-group col-lg-5" style="text-align:center">
+                    @Html.DropDownList("Select", null, new { onchange = @"changeStatus();", @class = "form-control" })
                     @Html.TextBox("input", @ViewBag.input as string, new { @placeholder = "Tìm kiếm", @class = "form-input" })
                     <button type="submit" class='btn btn-default'><i class="fas fa-search"></i> Tìm kiếm</button>
                     <a href="~/Book/Index" class='btn btn-default'><span class="fas fa-redo-alt"></span> Refresh</a>
@@ -22,33 +22,33 @@
             </td>
             <td>
                 <tr>
-                    <div id="type" style="display: none">
+                    <div id="type" class="col-lg-3" style="display: none">
                         Thể loại:
-                        @Html.DropDownList("typeid", null, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.DropDownList("typeid", null, new { @class = "form-control" })
                     </div>
 
                 </tr>
                 <tr>
-                    <div id="author" style="display:none">
+                    <div id="author" class="col-lg-3" style="display:none">
                         Tác giả:
-                        @Html.DropDownList("authorid", null, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.DropDownList("authorid", null, new { @class = "form-control" })
                     </div>
                 </tr>
                 <tr>
-                    <div id="price" style="display: none">
+                    <div id="price" class="col-lg-3" style="display: none">
                         Giá:
-                        @Html.DropDownList("selectprice", null, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.DropDownList("selectprice", null, new { @class = "form-control" })
                     </div>
                 </tr>
                 <tr>
-                    Sắp xếp: @Html.DropDownList("sort", null, new { @class = "from-control", @onChange = "this.form.submit()" });
+                    <div class="col-lg-3">Sắp xếp: @Html.DropDownList("sort", null, new { @class = "form-control", @onChange = "this.form.submit()" })</div>
                 </tr>
         </div>
     }
+    <a href="~/Book/Create" class='btn btn-default' style="float:right"><span class="fas fa-plus-circle"></span> Thêm sách</a>
+    <p>
 
-<p>
-    
-</p>
+    </p>
 
     <table class="table">
 
@@ -131,9 +131,9 @@
                     @Html.DisplayFor(modelItem => item.PRICE)
                 </td>
                 <td>
-                    @Html.ActionLink("Sửa thông tin", "Edit", new { id = item.BOOKID }) |
-                    @Html.ActionLink("Thông tin chi tiết", "Details", new { id = item.BOOKID }) |
-                    @Html.ActionLink("Xóa sách trên kệ hàng", "Delete", new { id = item.BOOKID })
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.BOOKID }) |
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.BOOKID }) |
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.BOOKID })
                 </td>
             </tr>
         }
@@ -148,7 +148,7 @@
        {
            pageNum,
            input = Request.QueryString["input"],
-           Select=Request.QueryString["Select"],
+           Select = Request.QueryString["Select"],
            typeid = Request.QueryString["typeid"],
            authorid = Request.QueryString["authorid"],
            selectprice = Request.QueryString["selectprice"],

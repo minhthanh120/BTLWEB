@@ -7,22 +7,26 @@
 
 <h2>Thông tin loại sách</h2>
 <hr />
-<div>
-    <dl class="dl-horizontal" style="font-size: 16px">
-        <dt>
-            ID loại sách:
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.TYPEID)
-        </dd>
-        <br>
-        <dt>
-            Tên loại sách:
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.TYPENAME)
-        </dd>
-    </dl>
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <div>
+            <dl class="dl-horizontal" style="font-size: 16px">
+                <dt>
+                    ID loại sách:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.TYPEID)
+                </dd>
+                <br>
+                <dt>
+                    Tên loại sách:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.TYPENAME)
+                </dd>
+            </dl>
+        </div>
+    </div>
 </div>
 <hr />
 <p>

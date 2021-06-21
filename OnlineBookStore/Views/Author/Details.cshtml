@@ -7,22 +7,24 @@
 
 <h2>Thông tin tác giả</h2>
 <hr />
-<div>
-    <dl class="dl-horizontal" style="font-size: 16px">
-        <dt>
-            ID Tác giả:
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.AUTHORID)
-        </dd>
-        <br>
-        <dt>
-            Tên tác giả:
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.AUTHORNAME)
-        </dd>
-    </dl>
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <dl class="dl-horizontal" style="font-size: 16px">
+            <dt>
+                Mã tác giả:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AUTHORID)
+            </dd>
+            <br>
+            <dt>
+                Tên tác giả:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AUTHORNAME)
+            </dd>
+        </dl>
+    </div>
 </div>
 <hr />
 <p>

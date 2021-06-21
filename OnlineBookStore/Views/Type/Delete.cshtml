@@ -7,30 +7,32 @@
 
 <h2>Xóa loại sách </h2>
 <hr />
-<div>
-    <dl class="dl-horizontal" style="font-size: 16px">
-        <dt>
-            ID Loại sách:
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.TYPEID)
-        </dd>
-        <br>
-        <dt>
-            Tên loại sách:
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.TYPENAME)
-        </dd>
-    </dl>
-    <hr />
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <dl class="dl-horizontal" style="font-size: 16px">
+            <dt>
+                ID Loại sách:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TYPEID)
+            </dd>
+            <br>
+            <dt>
+                Tên loại sách:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TYPENAME)
+            </dd>
+        </dl>
+        <hr />
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Xóa loại sách" class="btn btn-default" /> |
-            <a href="~/Type" class='btn btn-default'>Quay Lại</a>
-        </div>
-    }
+            <div class="form-actions no-color">
+                <input type="submit" value="Xóa loại sách" class="btn btn-default" /> |
+                <a href="~/Type" class='btn btn-default'>Quay Lại</a>
+            </div>
+        }
+    </div>
 </div>

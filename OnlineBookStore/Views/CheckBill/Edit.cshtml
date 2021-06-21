@@ -7,73 +7,73 @@
 
 <h2>Thông tin đơn hàng</h2>
 
-<div class="form-horizontal">
+<div class="row justify-content-center">
+    <div class="col-lg-5">
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.BILLDATE): @Html.DisplayFor(model => model.BILLDATE)
+            </dt>
 
-    <hr />
-    <dl class="form-control">
-        <dt>
-            @Html.DisplayNameFor(model => model.BILLDATE): @Html.DisplayFor(model => model.BILLDATE)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.TOTALBILL): @Html.DisplayFor(model => model.TOTALBILL)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TOTALBILL): @Html.DisplayFor(model => model.TOTALBILL)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.USERID): @Html.DisplayFor(model => model.USERID)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.USERID): @Html.DisplayFor(model => model.USERID)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.USERNAME): @Html.DisplayFor(model => model.USERNAME)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.USERNAME): @Html.DisplayFor(model => model.USERNAME)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.ADDRESS): @Html.DisplayFor(model => model.ADDRESS)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ADDRESS): @Html.DisplayFor(model => model.ADDRESS)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.PHONE): @Html.DisplayFor(model => model.PHONE)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PHONE): @Html.DisplayFor(model => model.PHONE)
-        </dt>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EMAIL): @Html.DisplayFor(model => model.EMAIL)
-        </dt>
-        <dt>
-            @Html.DisplayNameFor(model => model.CHECKED): @Html.DisplayFor(model => model.CHECKED)
-    </dl>
-    @if (Model.CHECKED == false)
-    {
-        <dt>
-            <button class="btn btn-light" id="con" onclick="show1()">Xác nhận</button>
-        </dt>
-        <dt class="row">
-            <form action="Edit" method="post">
-                <div class="input-group-append">
-                    <button type="submit" name="jup" id="hide" value=@Model.BILLID.ToString() class="btn btn-success" style="display:none"><i class="fas fa-check-circle"></i> Đồng ý</button>
-                </div>
-            </form>
-            <button id="hide2" class="btn btn-danger" style="display:none" onclick="show2()"><i class="fas fa-times-circle"></i> Hủy</button>
-        </dt>
-    }
-    </dt>
-
-</div>
+            <dt>
+                @Html.DisplayNameFor(model => model.EMAIL): @Html.DisplayFor(model => model.EMAIL)
+            </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.CHECKED): @Html.DisplayFor(model => model.CHECKED)
+        </dl>
+        @if (Model.CHECKED == false)
+        {
+            <dt>
+                <button class="btn btn-light" id="con" onclick="show1()">Xác nhận</button>
+            </dt>
+            <dt class="row">
+                <form action="Edit" method="post">
+                    <div class="input-group-append">
+                        <button type="submit" name="jup" id="hide" value=@Model.BILLID.ToString() class="btn btn-success" style="display:none"><i class="fas fa-check-circle"></i> Đồng ý</button>
+                    </div>
+                </form>
+                <button id="hide2" class="btn btn-danger" style="display:none" onclick="show2()"><i class="fas fa-times-circle"></i> Hủy</button>
+            </dt>
+        }
 
 
-<p>
-    @Html.Action("DetailBill", new { id = Model.BILLID })
-</p>
+
+        <div>
+            @Html.Action("DetailBill", new { id = Model.BILLID })
+        </div>
 
 
-<script>
-    function show1() {
-        document.getElementById('hide').style.display = 'block';
-        document.getElementById('hide2').style.display = 'block';
-        document.getElementById('con').style.display = 'none';
-    }
-    function show2() {
-        document.getElementById('hide').style.display = 'none';
-        document.getElementById('hide2').style.display = 'none';
-        document.getElementById('con').style.display = 'block';
-    }
-</script>
+
+
+        <script>
+            function show1() {
+                document.getElementById('hide').style.display = 'block';
+                document.getElementById('hide2').style.display = 'block';
+                document.getElementById('con').style.display = 'none';
+            }
+            function show2() {
+                document.getElementById('hide').style.display = 'none';
+                document.getElementById('hide2').style.display = 'none';
+                document.getElementById('con').style.display = 'block';
+            }
+        </script>

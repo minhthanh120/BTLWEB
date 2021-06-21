@@ -11,8 +11,8 @@
 <h2>Danh sách hóa đơn</h2>
 @using (Html.BeginForm("Index", "CheckBill", FormMethod.Get))
 {
-    <div class="btn-group">
-        @Html.DropDownList("sort", null, new { @class = "from-control", @onChange = "this.form.submit()" });
+    <div class="btn-group col-lg-4">
+        @Html.DropDownList("sort", null, new { @class = "form-control", @onChange = "this.form.submit()" });
     </div>
 }
 

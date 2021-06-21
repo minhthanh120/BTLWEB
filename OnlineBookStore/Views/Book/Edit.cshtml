@@ -12,114 +12,116 @@
 {
     @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.BOOKID)
-    @Html.HiddenFor(model => model.PIC1)
-    @Html.HiddenFor(model => model.PIC2)
-    @Html.HiddenFor(model => model.PIC3)
-    @Html.HiddenFor(model => model.PIC4)
+<div class="row justify-content-center">
+    <div class="col-lg-5">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.BOOKID)
+        @Html.HiddenFor(model => model.PIC1)
+        @Html.HiddenFor(model => model.PIC2)
+        @Html.HiddenFor(model => model.PIC3)
+        @Html.HiddenFor(model => model.PIC4)
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.BOOKNAME, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.BOOKNAME, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.BOOKNAME, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.BOOKNAME, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BOOKNAME, new { @class = "form-control"  })
+                @Html.ValidationMessageFor(model => model.BOOKNAME, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
 
 
-    <div class="">
-        @Html.LabelFor(model => model.DESCRIPTIONS, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.TextAreaFor(model => model.DESCRIPTIONS, new
-            {
-                htmlAttributes = new { @class = "form-control" },
-           cols = "50",
-           rows = "10"
-            })
-            @Html.ValidationMessageFor(model => model.DESCRIPTIONS, "", new { @class = "text-danger" })
+        <div class="">
+            @Html.LabelFor(model => model.DESCRIPTIONS, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.DESCRIPTIONS, new
+           {
+               @class = "text-danger",
+               cols = "50",
+               rows = "10"
+           })
+                @Html.ValidationMessageFor(model => model.DESCRIPTIONS, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.TYPEID, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("typeid", null, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.TYPEID, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.TYPEID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("typeid", null, new { @class = "form-control"  })
+                @Html.ValidationMessageFor(model => model.TYPEID, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.PUBLISHID, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("publishid", null, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.PUBLISHID, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.PUBLISHID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("publishid", null, new { @class = "form-control"  })
+                @Html.ValidationMessageFor(model => model.PUBLISHID, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.AMOUNT, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.AMOUNT, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.AMOUNT, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.AMOUNT, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AMOUNT, new { @class = "form-control"  })
+                @Html.ValidationMessageFor(model => model.AMOUNT, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.AUTHORID, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("authorid", null, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.AUTHORID, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.AUTHORID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("authorid", null, new { @class = "form-control"  })
+                @Html.ValidationMessageFor(model => model.AUTHORID, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.PIC1, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <img src="@Url.Content(Model.PIC1?? "~/Image/add.png")" alt="Image not found" style="height:100px;width:100px" id="preImage" />
-            <input type="file" name="Image1" id="Image1" onchange="ShowImagePreview(this, document.getElementById('preImage'))" />
+        <div class="form-group">
+            @Html.LabelFor(model => model.PIC1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <img src="@Url.Content(Model.PIC1?? "~/Image/add.png")" alt="Image not found" style="width:290px" id="preImage" />
+                <input type="file" name="Image1" id="Image1" onchange="ShowImagePreview(this, document.getElementById('preImage'))" />
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.PIC2, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <img src="@Url.Content(Model.PIC2?? "~/Image/add.png")" alt="Image not found" style="height:100px;width:100px" id="preImage2" />
-            <input type="file" name="Image2" id="Image2" onchange="ShowImagePreview2(this, document.getElementById('preImage2'))" />
+        <div class="form-group">
+            @Html.LabelFor(model => model.PIC2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <img src="@Url.Content(Model.PIC2?? "~/Image/add.png")" alt="Image not found" style="width:290px" id="preImage2" />
+                <input type="file" name="Image2" id="Image2" onchange="ShowImagePreview2(this, document.getElementById('preImage2'))" />
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.PIC3, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <img src="@Url.Content(Model.PIC3?? "~/Image/add.png")" alt="Image not found" style="height:100px;width:100px" id="preImage3" />
-            <input type="file" name="Image3" id="Image3" onchange="ShowImagePreview3(this, document.getElementById('preImage3'))" />
+        <div class="form-group">
+            @Html.LabelFor(model => model.PIC3, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <img src="@Url.Content(Model.PIC3?? "~/Image/add.png")" alt="Image not found" style="width:290px" id="preImage3" />
+                <input type="file" name="Image3" id="Image3" onchange="ShowImagePreview3(this, document.getElementById('preImage3'))" />
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.PIC4, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <img src="@Url.Content(Model.PIC4?? "~/Image/add.png")" alt="Image not found" style="height:100px;width:100px" id="preImage4" />
-            <input type="file" name="Image4" id="Image4" onchange="ShowImagePreview4(this, document.getElementById('preImage4'))" />
+        <div class="form-group">
+            @Html.LabelFor(model => model.PIC4, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <img src="@Url.Content(Model.PIC4?? "~/Image/add.png")" alt="Image not found" style="width:290px" id="preImage4" />
+                <input type="file" name="Image4" id="Image4" onchange="ShowImagePreview4(this, document.getElementById('preImage4'))" />
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.PRICE, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.PRICE, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.PRICE, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.PRICE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PRICE, new { @class = "form-control"  })
+                @Html.ValidationMessageFor(model => model.PRICE, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Lưu" class="btn btn-default" />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-default" />
+            </div>
         </div>
     </div>
 </div>
