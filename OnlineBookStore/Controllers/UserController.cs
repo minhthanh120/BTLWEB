@@ -55,6 +55,10 @@ namespace OnlineBookStore.Controllers
                 {
                     int adminID = Int32.Parse(reader["USERID"].ToString());
                     USERDAO dao = new USERDAO();
+                    USER u =new USER();
+                    u = dao.SEARCHID(adminID);
+                    Session["UN"] = u.USERNAME;
+                    Session["AVT"] = u.AVATAR;
                     Session["Admin"] = dao.SEARCHID(adminID);
                     return RedirectToAction("AdminInfo", "User", new { id = adminID });
                 }
