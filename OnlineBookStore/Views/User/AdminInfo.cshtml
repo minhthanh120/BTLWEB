@@ -16,22 +16,22 @@
             <img src="@Url.Content(Model.AVATAR?? "~/Image/nulluser.png")" alt="Image not found" width="200" height="200" />
         </div>
         <div id="mid">
-            <h2>ID Tài khoản: </h2><br />
-            <h2>Tên tài khoản:</h2><br />
-            <h2>Mật khẩu:</h2><br />
-            <h2>Tên người dùng:</h2><br />
-            <h2>Địa chỉ:</h2><br />
-            <h2>Liên lạc:</h2><br />
-            <h2>Email:</h2><br />
+            ID Tài khoản: <br />
+            Tên tài khoản:<br />
+            Mật khẩu:<br />
+            Tên người dùng:<br />
+            Địa chỉ:<br />
+            Liên lạc:<br />
+            Email:<br />
         </div>
         <div id="right">
-            <h2>@Html.DisplayFor(model => model.USERID)</h2><br />
-            <h2>@Html.DisplayFor(model => model.ACCOUNT)</h2><br />
-            <h2>@ViewBag.HiddenPass</h2><br />
-            <h2>@Html.DisplayFor(model => model.USERNAME)</h2><br />
-            <h2>@Html.DisplayFor(model => model.ADDRESS)</h2><br />
-            <h2>@Html.DisplayFor(model => model.PHONE)</h2><br />
-            <h2>@Html.DisplayFor(model => model.EMAIL)</h2><br />
+            @Html.DisplayFor(model => model.USERID)<br />
+            @Html.DisplayFor(model => model.ACCOUNT)<br />
+            @ViewBag.HiddenPass<br />
+            @Html.DisplayFor(model => model.USERNAME)<br />
+            @Html.DisplayFor(model => model.ADDRESS)<br />
+            @Html.DisplayFor(model => model.PHONE)<br />
+            @Html.DisplayFor(model => model.EMAIL)<br />
         </div>
     </div>
 </div>
