@@ -110,6 +110,12 @@
         <div class="col-md-9">
             @Html.Raw(c.COMMENT1.Replace("\n", "<br />"))
         </div>
+        @if(c.USERID.Equals(Session["Userid"]))
+        {
+            <a href="/Comments/Delete/@c.COMMENTID" onclick="return confirm('Bạn chắc chắn muốn xóa ?')">
+                <span class="glyphicon glyphicon-trash"></span>
+            </a>
+        }
     </div>
     <br />
     <br />

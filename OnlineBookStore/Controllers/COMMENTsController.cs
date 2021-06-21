@@ -107,16 +107,10 @@ namespace OnlineBookStore.Controllers
         // GET: COMMENTs/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             COMMENT cOMMENT = db.COMMENT.Find(id);
-            if (cOMMENT == null)
-            {
-                return HttpNotFound();
-            }
-            return View(cOMMENT);
+            db.COMMENT.Remove(cOMMENT);
+            db.SaveChanges();
+            return RedirectToAction("Details", "BOOKS", new { id = cOMMENT.BOOKID });
         }
 
         // POST: COMMENTs/Delete/5
