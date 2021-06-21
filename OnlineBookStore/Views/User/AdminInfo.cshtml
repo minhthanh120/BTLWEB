@@ -7,7 +7,7 @@
     Layout = "~/Views/Shared/BackendLayout.cshtml";
 }
 
-<h2>Thông tin tài khoản</h2>
+<h2>Thông tin người quản trị</h2>
 <hr />
 <div>
     <div id="HASH" class="infomation">
@@ -16,28 +16,18 @@
             <img src="@Url.Content(Model.AVATAR?? "~/Image/nulluser.png")" alt="Image not found" width="200" height="200" />
         </div>
         <div id="mid">
-            ID Tài khoản: <br />
-            Tên tài khoản:<br />
-            Mật khẩu:<br />
-            Tên người dùng:<br />
-            Địa chỉ:<br />
-            Liên lạc:<br />
-            Email:<br />
+            Tên tài khoản:  @Html.DisplayFor(model => model.ACCOUNT)<br />
+            Tên người dùng: @Html.DisplayFor(model => model.USERNAME)<br />
+            Địa chỉ:  @Html.DisplayFor(model => model.ADDRESS)<br />
+            Liên lạc: @Html.DisplayFor(model => model.PHONE)<br />
+            Email: @Html.DisplayFor(model => model.EMAIL)<br />
         </div>
-        <div id="right">
-            @Html.DisplayFor(model => model.USERID)<br />
-            @Html.DisplayFor(model => model.ACCOUNT)<br />
-            @ViewBag.HiddenPass<br />
-            @Html.DisplayFor(model => model.USERNAME)<br />
-            @Html.DisplayFor(model => model.ADDRESS)<br />
-            @Html.DisplayFor(model => model.PHONE)<br />
-            @Html.DisplayFor(model => model.EMAIL)<br />
-        </div>
+        
     </div>
 </div>
 <hr />
 <p style="font-size: 35px" class="btn-group">
-    <a href="~/Manager" class='btn btn-default' style="font-size: 19px"><span class="fas fa-arrow-circle-left"></span> Quay về</a>
+    
     <a href="~/User/LogOut" class='btn btn-default' style="font-size: 19px"><span class="fas fa-sign-out"></span> Đăng xuất</a>
     <a href="~/User/AdminEdit/@Model.USERID" class='btn btn-default' style="font-size: 19px"><span class="fas fa-info"></span> Sửa thông tin</a>
     <a href="~/User/AdmChgPass/@Model.USERID" class='btn btn-default' style="font-size: 19px"><span class="fas fa-user"></span> Đổi mật khẩu</a>
