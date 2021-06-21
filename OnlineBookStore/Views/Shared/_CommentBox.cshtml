@@ -2,13 +2,13 @@
 
     <dd>
         <div class="commentBox">
-            @using (Html.BeginForm("Create", "COMMENTS", FormMethod.Post, new { onsubmit = "return SubmitComment()" }))
+            @using (Html.BeginForm("Create", "COMMENTs", FormMethod.Post, new { onsubmit = "return SubmitComment()" }))
             {
                 @Html.AntiForgeryToken()
                 <div class="form-horizontal">
                     <div class="form-group">
                         <label class="col-md-4 control-label">
-                            Your rating <span style="font-weight:normal;">(1 start is bad, 5 star is good)</span>
+                            Đánh giá của bạn 
                         </label>
                         <div class="col-md-7">
                             <div onmouseout="CRateSelected()">
@@ -18,13 +18,15 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-12">
-                            <textarea name="Comment" id="Comment" required rows="5" style="width:100%;" class="form-control"></textarea>
+                            <textarea name="COMMENT1" id="COMMENT1" required rows="5" style="width:100%;" class="form-control"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-12">
-                            <input type="hidden" name="comentid" value="@ViewBag.comentid" />
-                            <input type="hidden" name="RATING" id="RATING" value="0" />
+                            @Html.TextBox("COMMENTDATE", DateTime.Now, new { @class = "form-control", @readonly = "readonly", @type = "hidden" })
+                            <input id="BOOKID" type="hidden" name="BOOKID" value="@ViewBag.bookid" />
+                            <input id="USERID" name="USERID" type="hidden" class="form-control" value="@Session["userid"]" />
+                            <input type="hidden" name="Rating" id="Rating" value="0" />
                             <input type="submit" id="btnRegister" name="btnRegister" value="Submit Comment" class="btn btn-warning" />
                         </div>
                     </div>
